@@ -1,0 +1,79 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--main-bg-color) !important;
+    width: 100%;
+    gap: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header-text {
+    font-size: 20px;
+    font-family: '微软雅黑', '黑体', Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+    background: white;
+    padding: 14px 8px;
+    border-radius: 12px;
+    border: 0.5px solid #666;
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+    width: 50%;
+    text-align: center;
+}
+
+.header-image {
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.20);
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+}
+
+.nickname-input-container,
+.account-input-container,
+.password-input-container,
+.confirm-password-input-container,
+.form-btn-containe {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: '黑体';
+}
+
+.input-field {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 12px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

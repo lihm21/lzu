@@ -1,0 +1,68 @@
+/* pages/community/index.wxss */
+page {
+    background: var(--main-bg-color) !important;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.circle-layout {
+    position: relative;
+    width: 600rpx;
+    height: 600rpx;
+}
+
+.bubble-item {
+    position: absolute;
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10rpx 20rpx rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    left: 50%;
+    top: 50%;
+    margin-left: -80rpx;
+    margin-top: -80rpx;
+}
+
+.bubble-item:active {
+    transform: scale(0.9) !important;
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+}
+
+.category-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-bottom: 10rpx;
+}
+
+.category-text {
+    color: #fff;
+    font-size: 24rpx;
+    font-weight: 500;
+    text-shadow: 0 2rpx 4rpx rgba(0,0,0,0.2);
+}
+
+.center-bubble-container {
+    position: absolute;
+    border-radius: 50%;
+    width: 160rpx;
+    height: 160rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-button-color);
+    color:  white;
+    font-size: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

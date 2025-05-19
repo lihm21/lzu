@@ -1,0 +1,79 @@
+<!--pages/home/search/index.wxml-->
+<view class="search-container">
+    <!-- 搜索框 -->
+    <view class="search-bar">
+        <view class="input-wrapper">
+            <image class="search-icon" src="../../../assets/images/home/search.png"/>
+            <input 
+                class="search-input" 
+                placeholder="请输入搜索关键词"
+                focus
+                value="{{keyword}}"
+                bindinput="onInput"
+                bindconfirm="handleSearch"
+            />
+            <image 
+                wx:if="{{keyword}}" 
+                class="clear-icon" 
+                src="../../../assets/images/home/clear.png"
+                bindtap="clearKeyword"
+            />
+        </view>
+        <text class="search-btn" bindtap="handleSearch">搜索</text>
+    </view>
+
+    <!-- 搜索状态 -->
+    <view wx:if="{{!showResult}}">
+        <!-- 热门话题 -->
+        <view wx:if="{{hotTopics.length}}" class="section">
+            <view class="section-header">
+                <text class="title">热门话题</text>
+            </view>
+            <view class="tag-list">
+                <block wx:for="{{hotTopics}}" wx:key="text">
+                    <view class="tag" bindtap="searchTopic" data-text="{{item}}">
+                        {{item}}
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <!-- 搜索历史 -->
+        <view wx:if="{{searchHistory.length}}" class="section">
+            <view class="section-header">
+                <text class="title">搜索历史</text>
+                <image 
+                    class="delete-icon" 
+                    src="../../../assets/images/home/clear.png"
+                    bindtap="clearHistory"
+                />
+            </view>
+            <view class="tag-list">
+                <block wx:for="{{searchHistory}}" wx:key="index">
+                    <view class="history-item">
+                        <text class="text" bindtap="searchHistory" data-text="{{item}}">{{item}}</text>
+                        <image 
+                            class="close-icon" 
+                            src="../../../assets/images/home/close.png"
+                            bindtap="removeHistory" 
+                            data-index="{{index}}"
+                        />
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <!-- 搜索结果 -->
+    <scroll-view wx:else class="result-list" scroll-y>
+        <block wx:for="{{searchResults}}" wx:key="_id">
+            <view class="result-item" bindtap="navigateToDetail" data-id="{{item._id}}">
+                <text class="title">{{item.title}}</text>
+                <text class="content">{{item.content}}</text>
+            </view>
+        </block>
+        <view wx:if="{{!searchResults.length}}" class="empty">
+            <text class="empty-text">没有找到相关帖子</text>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,19 @@
+<!-- pages/community/index.wxml -->
+<view class="container">
+  <view class="circle-layout">
+    <block wx:for="{{categories}}" wx:key="id">
+      <view 
+        class="bubble-item"
+        data-id="{{item.id}}"
+        style="transform: rotate({{60 * index}}deg) translate(280rpx) rotate(-{{60 * index}}deg); background: {{item.color}};"
+        bind:tap="navigateToCategory"
+      >
+        <image class="category-icon" src="{{item.icon}}" />
+        <text class="category-text">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="center-bubble-container">
+    +
+  </view>
+</view>

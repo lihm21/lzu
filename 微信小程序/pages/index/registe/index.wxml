@@ -1,0 +1,57 @@
+<!--pages/index/registe/index.wxml-->
+<view class="container">
+    <view class="header-container">
+        <text class="header-text">欢迎来到坐论</text>
+        <image 
+            class="header-image"
+            src="../../../assets/images/index/bg1.png">
+        </image>
+    </view>
+    <view class="main-container">
+        <form style="width: 100%; height: auto;">
+            <view class="nickname-input-container">
+                <label class="input-label">请输入用户昵称</label>
+                <input 
+                    class="input-field"
+                    style="width: 200px; height: 30px; background-color: #fff;"
+                    name="nickname"
+                    type="nickname"
+                    bindinput="handleNicknameInput"
+                />
+            </view>
+            <view class="account-input-container">
+                <label class="input-label">请输入用户账号</label>
+                <input 
+                    class="input-field"
+                    style="width: 200px; height: 30px; background-color: #fff;"
+                    name="account"
+                    type="text"
+                    bindinput="handleAccountInput"
+                />
+            </view>
+            <view class="password-input-container">
+                <label class="input-label">请输入用户密码</label>
+                <input 
+                    class="input-field"
+                    style="width: 200px; height: 30px; background-color: #fff;"
+                    name="password"
+                    password="true"
+                    bindinput="handlePasswordInput"
+                />
+            </view>
+            <view class="confirm-password-input-container"> 
+                <label class="input-label">请确认您的密码</label>
+                <input 
+                    class="input-field"
+                    style="width: 200px; height: 30px; background-color: #fff;"
+                    name="comfirmPassword"
+                    password="true"
+                    bindinput="handleComfirmPasswordInput"
+                />
+            </view>
+            <view class="form-btn-container" style="margin-top: 48px;">
+                <button type="primary" bind:tap="handleRegisteClick">注册</button>
+            </view>
+        </form>
+    </view>
+</view>

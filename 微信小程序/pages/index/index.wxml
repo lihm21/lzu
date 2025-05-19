@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="app-header-container">
+        <text class="app-header-text">欢迎来到坐论</text>
+        <text class="app-header-text">推心置腹的谈话就是心灵的暗示</text>
+    </view>
+    <view class="app-icon-container">
+        <image 
+            class="app-icon"
+            src="../../assets/images/icon.png">
+        </image>
+    </view>
+    <view class="app-btn-group">
+        <button class="registe-btn" bind:tap="handleRegisteClick">新用户注册</button>
+        <button class="login-btn" bind:tap="handleLoginClick">登录</button>
+        <button class="no-id-btn" bind:tap="handleNoIdClick">游客登陆</button>
+    </view>
+    <view class="app-bg-container">
+        <image 
+            class="app-bg"
+            src="../../assets/images/index/bg.png">
+        </image>
+    </view>
+</view>

@@ -1,0 +1,127 @@
+<!-- pages/community/topic/index.wxml -->
+<scroll-view 
+  class="container" 
+  scroll-y 
+  enhanced 
+  show-scrollbar="{{false}}"
+>
+    <view class="post-list">
+        <block wx:for="{{postList}}" wx:key="_id">
+        <!-- 帖子内容结构 -->
+            <view class="post-item">
+                <view class="post-header">
+                    <image 
+                        class="post-avatar"
+                        src="{{item.avatarUrl}}">
+                    </image>
+                    <text class="post-nickname">{{item.nickname}}</text>
+                    <button class="post-detail-btn" type="primary" data-index="{{index}}" bind:tap="handlePostItemClick">
+                        详情
+                    </button>
+                </view>
+                <view class="post-body">
+                    <text 
+                        class="post-content">
+                        {{item.content}}
+                    </text>
+                    <image 
+                        class="post-image" 
+                        mode="aspectFit"
+                        src="{{item.image[0]}}">
+                    </image>
+                </view>
+                <view class="post-footer">
+                    <text class="post-view">浏览量：{{item.viewCount}}</text>
+                    <view class="post-btn-group">
+                        <button class="view-btn" catch:tap="handleLikeBtnClick" data-index="{{index}}">
+                            <image src="../../../assets/images/community/topic/like.png" class="view-btn-icon"></image>
+                            {{item.likeCount}}
+                        </button>
+                        <button class="view-btn" catch:tap="handleDislikeBtnClick" data-index="{{index}}">
+                            <image src="../../../assets/images/community/topic/dislike.png" class="view-btn-icon"></image>
+                            {{item.dislikeCount}}
+                        </button>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <!-- 遮罩背景 -->
+    <view 
+        class="mask {{isEditing ? 'show' : ''}}" 
+        bindtap="handleCancelEdit"
+    ></view>
+
+    <!-- 编辑弹窗 -->
+    <view class="edit-popup {{isEditing ? 'active' : ''}}">
+        <view class="popup-container">
+        <view class="popup-header">
+            <text class="title">发布新帖子</text>
+            <image 
+            class="close-icon" 
+            src="../../../assets/images/community/topic/close.png" 
+            bindtap="handleCancelEdit"
+            />
+        </view>
+        
+        <view class="popup-body">
+            <view class="form-item">
+                <text class="label">标题</text>
+                <input 
+                    class="input" 
+                    placeholder="请输入标题（最多30字）" 
+                    maxlength="30"
+                    value="{{form.title}}"
+                    bindinput="handleInputTitle"
+                />
+            </view>
+
+            <view class="form-item">
+                <text class="label">内容</text>
+                <textarea 
+                    class="textarea" 
+                    placeholder="分享你的想法..." 
+                    maxlength="500"
+                    value="{{form.content}}"
+                    bindinput="handleInputContent"
+                ></textarea>
+            </view>
+
+            <view class="form-item">
+                <text class="label">添加图片</text>
+            <view class="image-picker">
+                <view class="image-item" wx:if="{{form.image}}">
+                    <image class="image" src="{{form.image}}" mode="aspectFill" bindtap="handleAddImage"/>
+                    <image 
+                    class="delete-icon" 
+                    src="../../../assets/images/community/topic/close.png"
+                    bindtap="handleDeleteImage"
+                    data-index="{{index}}"
+                    />
+                </view>
+                <view 
+                    class="add-image" 
+                    bindtap="handleAddImage"
+                >
+                    <image class="add-icon" src="../../../assets/images/community/topic/add.png" />
+                </view>
+            </view>
+            </view>
+        </view>
+
+        <view class="popup-footer">
+            <button class="btn cancel" bindtap="handleCancelEdit">取消</button>
+            <button class="btn submit" bindtap="handleSubmit">发布</button>
+        </view>
+        </view>
+    </view>
+
+    <!-- 发布按钮 -->
+    <button 
+        class="add-post-btn {{isEditing ? 'hide' : ''}}" 
+        bindtap="handleAddPostBtnClick"
+    >
+        +
+    </button>
+</scroll-view>

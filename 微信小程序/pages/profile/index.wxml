@@ -1,0 +1,43 @@
+<!-- pages/profile/index.wxml -->
+<view class="container">
+    <!-- 头部信息 -->
+    <view class="profile-header">
+        <view class="avatar-section" bindtap="changeAvatar">
+            <image class="avatar" src="{{userInfo.avatarUrl}}" />
+        </view>
+        <view class="nickname-section">
+            <text class="nickname">{{userInfo.nickName}}</text>
+            <image 
+                class="edit-icon" 
+                src="../../assets/images/profile/edit.png" 
+                bindtap="changeNickname"
+            />
+        </view>
+    </view>
+
+    <!-- 互动记录 -->
+    <view class="profile-body">
+        <!-- 我喜欢 -->
+        <view class="record-section" catch:tap="handleLikeClick">
+            <image class="section-icon" src="../../assets/images/profile/like.png"/>
+            <view class="section-title">我喜欢的</view>
+        </view>
+
+        <!-- 我不喜欢 -->
+        <view class="record-section" catch:tap="handleDislikeClick">
+            <image class="section-icon" src="../../assets/images/profile/dislike.png"/>
+            <view class="section-title">我讨厌的</view>
+        </view>
+
+        <!-- 我浏览过 -->
+        <view class="record-section" catch:tap="handleViewClick">
+            <image class="section-icon" src="../../assets/images/profile/view.png"/>
+            <view class="section-title">浏览记录</view>
+        </view>
+    </view>
+
+    <!-- 退出登录 -->
+    <view class="logout-section">
+        <button class="logout-btn" bindtap="showLogoutConfirm">退出登录</button>
+    </view>
+</view>

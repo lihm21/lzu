@@ -1,0 +1,53 @@
+<!--pages/community/topic/detail/index.wxml-->
+<scroll-view 
+  class="container" 
+  scroll-y 
+  enhanced 
+  show-scrollbar="{{true}}"
+>
+    <view class="detail-container">
+        <view class="detail-header">
+            <image 
+                class="post-avatar"
+                src="{{postDetail.avatarUrl}}">
+            </image>
+            <text class="post-nickname">{{postDetail.nickname}}</text>
+        </view>
+        <view class="detail-body">
+            <text 
+                class="post-content">
+                {{postDetail.content}}
+            </text>
+            <image 
+                class="post-image" 
+                mode="aspectFit"
+                src="{{postDetail.image[0]}}">
+            </image>
+        </view>
+    </view> 
+
+    <view class="view-container">
+        <view style="margin: 10px 0;"> 评论 ：</view>
+        <block wx:for="{{viewsList}}" wx:key="*this">
+            <view class="view-item">
+                <view class="user-info">
+                    <image class="post-avatar" src="{{item.avatarUrl}}"></image>
+                    <text class="post-nickname">{{item.nickname}}</text>
+                </view>
+                
+                <text class="post-content" style="margin-left: 10px;">{{item.content}}</text>
+            </view>
+        </block>
+    </view>
+
+    <view class="input-container">
+        <input class="input-wrapper" 
+            placeholder="请输入（最多150字）" 
+            maxlength="150"
+            value="{{inputValue}}"
+            bindinput="handleInputTitle"/>
+        <button class="input-commit" bind:tap="handleCommitClick">
+            评论
+        </button>
+    </view>
+</scroll-view>

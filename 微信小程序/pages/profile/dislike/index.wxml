@@ -1,0 +1,47 @@
+<!--pages/profile/like/index.wxml-->
+<view class="container">
+    <scroll-view class="post-list" scroll-y>
+        <block wx:for="{{posts}}" wx:key="_id">
+        <!-- 帖子内容结构 -->
+            <view class="post-item">
+                <view class="post-header">
+                    <image 
+                        class="post-avatar"
+                        src="{{item.user.avatarUrl}}">
+                    </image>
+                    <text class="post-nickname">{{item.user.nickname}}</text>
+                    <button class="post-detail-btn" type="primary" data-index="{{index}}" bind:tap="handlePostItemClick">
+                        详情
+                    </button>
+                </view>
+                <view class="post-body">
+                    <text 
+                        class="post-content">
+                        {{item.post.content}}
+                    </text>
+                    <image 
+                        class="post-image" 
+                        mode="aspectFit"
+                        src="{{item.post.image[0]}}">
+                    </image>
+                </view>
+                <view class="post-footer">
+                    <text class="post-view">浏览量：{{item.post.viewCount}}</text>
+                    <view class="post-btn-group">
+                        <button class="view-btn" catch:tap="handleLikeBtnClick" data-index="{{index}}">
+                            <image src="../../../assets/images/community/topic/like.png" class="view-btn-icon"></image>
+                            {{item.post.likeCount}}
+                        </button>
+                        <button class="view-btn" catch:tap="handleDislikeBtnClick" data-index="{{index}}">
+                            <image src="../../../assets/images/community/topic/dislike.png" class="view-btn-icon"></image>
+                            {{item.post.dislikeCount}}
+                        </button>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view wx:if="{{!posts.length}}" class="empty">
+            <text>还没有讨厌的帖子哦~</text>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,10 @@
+/**app.wxss**/
+@font-face {
+    font-family: 'XingShuFont';
+    src: local('/assets/fonts/AiDianQuYaYuan-2.ttf') format('truetype');
+}
+
+page {
+    --main-button-color: rgb(95, 170, 170);
+    --main-bg-color: #EEF0F6;
+}

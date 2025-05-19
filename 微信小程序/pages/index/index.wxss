@@ -1,0 +1,89 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  --icon-size: 144px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle, rgb(200, 230, 90), rgb(244, 244, 244));
+}
+
+.app-header-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 54px;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header-text {
+    text-align: center;
+    font-weight: 600;
+    font-family: 'XingShuFont', '黑体', Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    line-height: 1.8;
+}
+
+.app-icon-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 36px 0;
+}
+
+.app-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 16px;
+    box-shadow: -9px 12px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.app-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.app-btn-group button {
+    padding: 12px;
+}
+
+.registe-btn {
+    background: var(--main-button-color) !important;
+    color: white;
+}
+
+.no-id-btn {
+    background: transparent !important;
+    color: #666;
+    padding: 0 !important;
+    font-size: 16px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+    letter-spacing: 4px;
+}
+
+.app-bg-container {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.app-bg {
+    width: 100%;
+    height: 100%;
+}

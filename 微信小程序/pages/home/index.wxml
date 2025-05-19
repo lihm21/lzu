@@ -1,0 +1,50 @@
+<!--pages/home/index.wxml-->
+<view class="container">
+    <!-- 搜索 -->
+    <view class="search-area-container">
+        <view class="search-box" bindtap="goSearch">
+            <image class="search-icon" src="../../assets/images/home/search.png" />
+            <text class="placeholder">请输入商品/活动关键词</text>
+        </view>
+    </view>
+    <!-- 轮播图 -->
+    <swiper class="swiper-container" autoplay interval="3000" circular indicator-dots>
+        <block wx:for="{{banners}}" wx:key="id">
+            <swiper-item>
+                <image 
+                src="{{item.imageUrl}}" 
+                mode="aspectFill" 
+                class="swiper-image"
+                bindtap="onBannerTap"
+                data-id="{{item.id}}"
+                />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 热点 -->
+    <view class="hot-list-area">
+        <view class="hot-list-header">
+            <text class="hot-list-header-text">
+                热点帖子
+            </text>
+        </view>
+        <view class="hot-list-container">
+            <view class="hot-list-item" wx:for="{{hotPostsList}}" wx:key="_id">  
+                <view class="post-header">
+                    <image class="post-avatar" src="{{item.avatarUrl}}" />
+                    <text class="post-nickname">{{item.nickname}}</text>
+                    <text class="post-views">🔥 {{item.viewCount}}</text>
+                </view>
+                <view class="post-content">
+                    <text class="post-title">{{item.title}}</text>
+                    <text class="post-text">{{item.content}}</text>
+                </view>
+                <image 
+                    class="post-thumb" 
+                    src="{{item.image[0]}}" 
+                    mode="aspectFit"
+                />
+            </view>
+        </view>
+    </view>
+</view>
